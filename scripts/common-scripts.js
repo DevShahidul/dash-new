@@ -28,31 +28,6 @@
         });
         
         
-        var elementOffset = $("#promise-bg").offset().top - 0,
-            elementHeight = $("#promise-bg").outerHeight()
-            windoHeight = $(window).outerHeight();
-        
-        $(window).on("scroll", function(){
-            if($(window).scrollTop() > (elementOffset - windoHeight) + elementHeight ){
-                $("body").addClass("overlay-animate");
-                $("body").addClass("start-animate");
-                $("#promise-bg").css({
-                    "position": "fixed",
-                    "bottom" : 0,
-                })
-                $(".promise-content").css({
-                    "margin-top" : elementHeight
-                })
-            }else{
-                $("body").removeClass("start-animate");
-                $("#promise-bg").css({
-                    "position": "relative",
-                    "bottom" : "auto",
-                })
-            }
-        })
-        
-        
         // This function for scroll from bottom animation
 
             var $animation_elements = $('.animate');
@@ -82,19 +57,43 @@
             $window.trigger('scroll');
         // End animation function
 
-               $("a[href^='#']").click(function (e) {
-                   e.preventDefault();
+            $("a[href^='#']").click(function (e){
+               e.preventDefault();
 
-                   var position = $($(this).attr("href")).offset().top;
+               var position = $($(this).attr("href")).offset().top;
 
-                   $("body, html").animate({
-                           scrollTop: position
-                       },
-                       2000);
-               });
+               $("body, html").animate({
+                       scrollTop: position
+                   },
+                   2000);
+            });
         
+                
+        var elementOffset = $("#promise-bg").offset().top - 0,
+            elementHeight = $("#promise-bg").outerHeight(),
+            elementWidth = $("#promise-bg").outerWidth(),
+            windoHeight = $(window).outerHeight();
         
-        $(window).scroll(function () {
+        $(window).on("scroll", function(){
+            if($(window).scrollTop() > (elementOffset - windoHeight) + elementHeight ){
+                $("body").addClass("overlay-animate");
+                $("body").addClass("start-animate");
+                $("#promise-bg").css({
+                    "position": "fixed",
+                    "bottom" : 0,
+                })
+                $(".promise-content").css({
+                    "margin-top" : elementHeight
+                });                    
+                
+            }else{
+                $("body").removeClass("start-animate");
+                $("#promise-bg").css({
+                    "position": "relative",
+                    "bottom" : "auto",
+                })
+            }            
+            
             // The social div 
             var $content = $('.hero-content');
 
@@ -107,11 +106,49 @@
             }else{
                 $content.removeClass("go-top");
             }
-        });
-        
+            
+            
+        })
 
 
-        
+        var scroller = {};
+        scroller.e = document.getElementById("promise-bg");
+
+        if (scroller.e.addEventListener){
+            scroller.e.addEventListener("mousewheel", MouseWheelHandler, false);
+            scroller.e.addEventListener("DOMMouseScroll", MouseWheelHandler, false);
+        } else scroller.e.attachEvent("onmousewheel", MouseWheelHandler);
+
+        function MouseWheelHandler(e){
+
+            // cross-browser wheel delta
+            var e = window.event || e;
+            var delta = - 20 * (Math.max(-1, Math.min(1, (e.wheelDelta || -e.detail))));
+            var pst = $('#promise-bg').scrollTop() + delta;
+
+
+            $('#promise-bg').scrollTop(pst);
+
+            var totalScrollTop = pst
+            var docHeight = $('#promise-bg').outerHeight();
+            var docContainerHeight = $('.our-promise-section').outerHeight();
+            var progress = (totalScrollTop / (docHeight - docContainerHeight)) * 100;
+            var $bgColor = progress > 99 ? '#FFFFFF' : '#FFFFFF';
+
+
+            $('.overlay-progressbar').width(progress + '%').css({ backgroundColor: $bgColor });
+
+            /*var $animatedThumb = $('.gallery-portrait-thum, .diagonal-item');
+            //Slow scroll of social div and fade it out 
+            $animatedThumb.css({ 
+             'margin-left' : - (totalScrollLeft / 25) + "px", 
+            }); */
+
+
+
+
+            return false;
+        }
 
 	})// End ready function.
 

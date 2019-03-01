@@ -345,8 +345,9 @@ animation-name: vert_line_2; animation-iteration-count: 1; animation-duration: 3
 /* Our promise section */
 .our-promise-section{margin-top: 195px;}
 .promise-bg{position: relative; float: left; width: 100%; min-height: 560px; background-repeat: no-repeat; background-position: center center; background-size: cover; z-index: 1;}
-.promise-bg:before{position: absolute; content: ""; right: 0; width: 100%; -webkit-transform: translateX(0%); -moz-transform: translateX(0%); transform: translateX(0%); height: 100%; background-color: white; z-index: 5; -webkit-transition: all 1s cubic-bezier(.05,.69,.9,.75); -moz-transition: all 1s cubic-bezier(.05,.69,.9,.75); transition: all 1s cubic-bezier(.05,.69,.9,.75);}
+.promise-bg:before, .overlay-progressbar{position: absolute; content: ""; left: 0; width: 100%; height: 100%; background-color: white; z-index: 5; -webkit-transition: all 1s cubic-bezier(.05,.69,.9,.75); -moz-transition: all 1s cubic-bezier(.05,.69,.9,.75); transition: all 1s cubic-bezier(.05,.69,.9,.75);}
 .overlay-animate .promise-bg:before{-webkit-transform: translateX(-100%); -moz-transform: translateX(-100%); transform: translateX(-100%);}
+.overlay-progressbar{width: 0;}
 
 .promise-content{float: left; width: 100%;position: relative; z-index: 2; background-color: #1b1b1c; color: #ffffff; padding-top: 75px; padding-bottom: 260px;}
 .promise-content:after{ left: 0; position: absolute; top: auto; bottom: 0; background: -webkit-gradient(linear,left top,left bottom,from(transparent),to(#000)); background: -webkit-linear-gradient(top,transparent,#000); background: linear-gradient(180deg,transparent 0,#000); height: 7.5vw; width: 100%; z-index: 1;}

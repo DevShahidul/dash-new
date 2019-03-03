@@ -75,6 +75,24 @@
             windoHeight = $(window).outerHeight();
         
         $(window).on("scroll", function(){
+            
+            var windowScroll = $(this).scrollTop();
+            
+            
+            if($(window).scrollTop() > elementOffset - windoHeight){
+                let scrollTop = document.documentElement.scrollTop;
+                let scrollHeight = document.documentElement.scrollHeight - document.documentElement.clientHeight;
+                let progress = 100 * (scrollTop - elementOffset) / elementHeight;
+                document.querySelector("#overlay-progressbar").style.width = progress + 20 + "%";
+                
+                /*var $background = $('#bannerContent');
+                //Slow scroll of social div and fade it out 
+                $titleDiv.css({ 
+                 'margin-top' : - (windowScroll / 4) + "px", 
+                });*/
+                
+            }
+            
             if($(window).scrollTop() > (elementOffset - windoHeight) + elementHeight ){
                 $("body").addClass("overlay-animate");
                 $("body").addClass("start-animate");
@@ -84,17 +102,7 @@
                 })
                 $(".promise-content").css({
                     "margin-top" : elementHeight
-                });     
-                
-                
-                window.addEventListener("scroll", event => {
-                    let scrollTop = document.documentElement.scrollTop;
-                    let scrollHeight = document.documentElement.scrollHeight - document.documentElement.clientHeight;
-                    let progress = 100 * (scrollTop - elementOffset) / elementHeight;
-
-                    document.querySelector("#overlay-progressbar").style.width = progress + "%";
-
-                }) 
+                });    
                 
             }else{
                 $("body").removeClass("start-animate");
@@ -103,7 +111,6 @@
                     "position": "relative",
                     "bottom" : "auto",
                 })
-                
                 $("#overlay-progressbar").width(0);
             }            
             
@@ -120,12 +127,9 @@
                 $content.removeClass("go-top");
             }
             
-        
-            
         })
 
 	})// End ready function.
 
 })(jQuery)
-
 

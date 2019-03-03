@@ -84,14 +84,27 @@
                 })
                 $(".promise-content").css({
                     "margin-top" : elementHeight
-                });                    
+                });     
+                
+                
+                window.addEventListener("scroll", event => {
+                    let scrollTop = document.documentElement.scrollTop;
+                    let scrollHeight = document.documentElement.scrollHeight - document.documentElement.clientHeight;
+                    let progress = 100 * (scrollTop - elementOffset) / elementHeight;
+
+                    document.querySelector("#overlay-progressbar").style.width = progress + "%";
+
+                }) 
                 
             }else{
                 $("body").removeClass("start-animate");
+                //$("body").removeClass("overlay-animate");
                 $("#promise-bg").css({
                     "position": "relative",
                     "bottom" : "auto",
                 })
+                
+                $("#overlay-progressbar").width(0);
             }            
             
             // The social div 
@@ -107,48 +120,9 @@
                 $content.removeClass("go-top");
             }
             
+        
             
         })
-
-
-        var scroller = {};
-        scroller.e = document.getElementById("promise-bg");
-
-        if (scroller.e.addEventListener){
-            scroller.e.addEventListener("mousewheel", MouseWheelHandler, false);
-            scroller.e.addEventListener("DOMMouseScroll", MouseWheelHandler, false);
-        } else scroller.e.attachEvent("onmousewheel", MouseWheelHandler);
-
-        function MouseWheelHandler(e){
-
-            // cross-browser wheel delta
-            var e = window.event || e;
-            var delta = - 20 * (Math.max(-1, Math.min(1, (e.wheelDelta || -e.detail))));
-            var pst = $('#promise-bg').scrollTop() + delta;
-
-
-            $('#promise-bg').scrollTop(pst);
-
-            var totalScrollTop = pst
-            var docHeight = $('#promise-bg').outerHeight();
-            var docContainerHeight = $('.our-promise-section').outerHeight();
-            var progress = (totalScrollTop / (docHeight - docContainerHeight)) * 100;
-            var $bgColor = progress > 99 ? '#FFFFFF' : '#FFFFFF';
-
-
-            $('.overlay-progressbar').width(progress + '%').css({ backgroundColor: $bgColor });
-
-            /*var $animatedThumb = $('.gallery-portrait-thum, .diagonal-item');
-            //Slow scroll of social div and fade it out 
-            $animatedThumb.css({ 
-             'margin-left' : - (totalScrollLeft / 25) + "px", 
-            }); */
-
-
-
-
-            return false;
-        }
 
 	})// End ready function.
 

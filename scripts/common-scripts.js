@@ -69,9 +69,9 @@
             });
         
                 
-        var elementOffset = $("#promise-bg").offset().top - 0,
-            elementHeight = $("#promise-bg").outerHeight(),
-            elementWidth = $("#promise-bg").outerWidth(),
+        var elementOffset = $("#promise-inner").offset().top,
+            elementHeight = $("#promise-inner").outerHeight(),
+            elementWidth = $("#promise-inner").outerWidth(),
             windoHeight = $(window).outerHeight();
         
         $(window).on("scroll", function(){
@@ -82,21 +82,16 @@
             if($(window).scrollTop() > elementOffset - windoHeight){
                 let scrollTop = document.documentElement.scrollTop;
                 let scrollHeight = document.documentElement.scrollHeight - document.documentElement.clientHeight;
-                let progress = 100 * (scrollTop - elementOffset) / elementHeight;
+                let progress = 100 * (scrollTop - elementOffset) / elementWidth;
                 document.querySelector("#overlay-progressbar").style.width = progress + 20 + "%";
                 
-                /*var $background = $('#bannerContent');
-                //Slow scroll of social div and fade it out 
-                $titleDiv.css({ 
-                 'margin-top' : - (windowScroll / 4) + "px", 
-                });*/
                 
             }
             
             if($(window).scrollTop() > (elementOffset - windoHeight) + elementHeight ){
                 $("body").addClass("overlay-animate");
                 $("body").addClass("start-animate");
-                $("#promise-bg").css({
+                $("#promise-inner").css({
                     "position": "fixed",
                     "bottom" : 0,
                 })
@@ -107,11 +102,12 @@
             }else{
                 $("body").removeClass("start-animate");
                 //$("body").removeClass("overlay-animate");
-                $("#promise-bg").css({
+                $("#promise-inner").css({
                     "position": "relative",
                     "bottom" : "auto",
                 })
                 $("#overlay-progressbar").width(0);
+                //$background.css({'background-position':'center center'});
             }            
             
             // The social div 
@@ -125,6 +121,12 @@
                 $content.addClass("go-top");
             }else{
                 $content.removeClass("go-top");
+            }
+            
+            if( windowScroll > $(".promise-content").offset().top - 150){
+                $(".promise-content .content").addClass("start-animate");
+            }else{
+                $(".promise-content .content").removeClass("start-animate");
             }
             
         })

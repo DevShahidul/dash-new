@@ -26,7 +26,6 @@ html, body, div, span, object, iframe, h1, h2, h3, h4, h5, h6, p, blockquote, pr
 
 ul{list-style: none;} 
 article, aside, canvas, figure, figure img, figcaption, hgroup, footer, header, nav, section, audio, video{display: block;}
-
 blockquote, q{quotes: none;}
 blockquote:before, blockquote:after,
 q:before, q:after{content: ''; content: none;}
@@ -298,9 +297,9 @@ animation-name: vert_line_2; animation-iteration-count: 1; animation-duration: 3
 
 
 
+.promise-content .content ul, .promise-content .content p{opacity: 0;}
 
-
-.middle-content .in-view .lead-text, .middle-content .in-view p {
+.middle-content .in-view .lead-text, .middle-content .in-view p,  .content.start-animate ul,  .content.start-animate p{
     animation: fadein 4s;
     -moz-animation: fadein 4s; /* Firefox */
     -webkit-animation: fadein 4s; /* Safari and Chrome */
@@ -343,9 +342,12 @@ animation-name: vert_line_2; animation-iteration-count: 1; animation-duration: 3
 
 
 /* Our promise section */
-.our-promise-section{margin-top: 89px;}
-.promise-bg{position: relative; float: left; width: 100%; min-height: 560px; background-repeat: no-repeat; background-position: center center; background-size: cover; z-index: 1;}
+.our-promise-section{margin-top: 89px; position: static;}
+.promise-inner{overflow: hidden;}
+.promise-inner, .promise-bg{position: relative; float: left; width: 100%; z-index: 1;}
+.promise-bg{min-height: 560px; background-repeat: no-repeat; background-position: center center; background-size: cover; transition: background .3s ease-in;}
 .promise-bg:before, .overlay-progressbar{position: absolute; content: ""; left: 0; width: 100%; height: 100%; background-color: white; z-index: 5; -webkit-transition: all 1s cubic-bezier(.38,.38,.7,.74); -moz-transition: all 1s cubic-bezier(.38,.38,.7,.74); transition: all 1s cubic-bezier(.38,.38,.7,.74);}
+.promise-bg:before{opacity: 0;}
 .overlay-animate .promise-bg:before{-webkit-transform: translateX(-100%); -moz-transform: translateX(-100%); transform: translateX(-100%);}
 .overlay-progressbar{width: 0;}
 

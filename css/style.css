@@ -81,7 +81,8 @@ h1, h2, h3, h4, h5, h6, .small-title{font-family: 'Open Sans', sans-serif; font-
 
 h1, h2{font-size: 30px; line-height: 42px; letter-spacing: -0.75px}
 h3{font-size: 20px}
-
+.small-text{font-size: 15px; line-height: 22px;}
+.z-index-10{z-index: 10}
 
 dfn, address, em{font-style: normal;}
 label, input[type="submit"]{cursor: pointer;}
@@ -89,6 +90,7 @@ button:focus{outline: none;}
 
 
 section, footer, header{float: left; width: 100%; position: relative;}
+.bg-white{background-color: #ffffff;}
 
 body,html{height: 100%;}
 .main-wrap{min-height: 100%; overflow: hidden; padding-bottom: 0px; position: relative; overflow-x: hidden;}
@@ -357,6 +359,10 @@ animation-name: vert_line_2; animation-iteration-count: 1; animation-duration: 3
 .promise-content .content ul li{float: left; width: 100%; font-size: 40px; line-height: 60px; letter-spacing: -0.8px;}
 .promise-content .content p{float: right; max-width: 536px; margin-top: 37px; text-align: left;}
 
+
+/* lets-shake-section style */
+.lets-shake-section{padding-top: 279px; padding-bottom: 230px;}
+.lets-shake-section h2{padding-top: 35px; max-width: 843px;}
 
 /* =======================================================================================================
 ============================================ Responsive style ========================================== */

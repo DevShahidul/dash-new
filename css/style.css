@@ -296,14 +296,12 @@ animation-name: vert_line_2; animation-iteration-count: 1; animation-duration: 3
 }
 
 
-
-.promise-content .content ul, .promise-content .content p{opacity: 0;}
-
-.middle-content .in-view .lead-text, .middle-content .in-view p,  .content.start-animate ul,  .content.start-animate p{
-    animation: fadein 4s;
+.content .in-view ul,  .content .in-view p{animation-delay: .8s}
+.middle-content .in-view .lead-text, .middle-content .in-view p,  .content .in-view ul,  .content .in-view p{
     -moz-animation: fadein 4s; /* Firefox */
     -webkit-animation: fadein 4s; /* Safari and Chrome */
     -o-animation: fadein 4s; /* Opera */
+    animation: fadein 4s;
 }
 @keyframes fadein {
     from {

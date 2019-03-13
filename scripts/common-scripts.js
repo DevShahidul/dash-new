@@ -123,12 +123,6 @@
                 $content.removeClass("go-top");
             }
             
-            if( windowScroll > $(".promise-content").offset().top - 150){
-                $(".promise-content .content").addClass("start-animate");
-            }else{
-                $(".promise-content .content").removeClass("start-animate");
-            }
-            
         })
 
 	})// End ready function.

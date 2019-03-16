@@ -123,7 +123,56 @@
                 $content.removeClass("go-top");
             }
             
-        })
+        });
+        
+        
+        if ($("#founder-slider").length) {
+
+            $("#founder-slider").on('init', function (event, slick, currentSlide, nextSlide) {
+                $(this).find(".slick-current.slick-active").prev().addClass('prev-slide');                
+            });
+
+            $("#founder-slider").slick({
+                slidesToShow: 1,
+                slidesToScroll: 1,
+                //arrows: true,
+                dots: false,
+                infinite: true,
+                fade: false,
+                centerMode: false,
+                speed: 1300,
+
+            }).on('afterChange', function (event, slick, currentSlide, nextSlide){
+                $(this).find(".slick-slide").removeClass('prev-slide');
+                $(this).find(".slick-current.slick-active").prev().addClass('prev-slide');
+                var getNum = currentSlide + 1;
+                getNum = getNum < 10 ? '0' + getNum : getNum;
+                $(this).parents('.founder-inner').find('.count-slide > span').text("/ " + getNum);
+                
+
+            }).on("mousewheel", function (event){
+                event.preventDefault();
+                if (event.deltaX > 0 || event.deltaY < 0) {
+                    $(this).slick('slickNext');
+                } else if (event.deltaX < 0 || event.deltaY > 0) {
+                    $(this).slick('slickPrev');
+                }
+            });
+
+            $('#founder-slider-controller .slide-prev button').on('click', function (e) {
+                e.preventDefault();
+                $('#founder-slider > .slick-prev').trigger('click');
+            });
+
+            $('#founder-slider-controller .slide-next button').on('click', function (e) {
+                e.preventDefault();
+                $('#founder-slider > .slick-next').trigger('click');
+            });
+
+
+        }
+        
+        
 
 	})// End ready function.
 

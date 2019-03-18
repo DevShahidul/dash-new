@@ -173,6 +173,13 @@
         }
         
         
+        $(window).on("scroll", function(){
+            //if($(window).scrollTop() > $(".our-values-section").offset().top - 150){
+                var theta = $(window).scrollTop() / 500 % Math.PI;
+                $('.round-logo').css({ transform: 'rotate(' + theta + 'rad)' });
+            //}
+        }); 
+        
 
 	})// End ready function.
 

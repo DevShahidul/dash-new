@@ -56,17 +56,24 @@
             $window.on('scroll resize', check_if_in_view);
             $window.trigger('scroll');
         // End animation function
+        
+        var headerHeight = $(".header-section").outerHeight();
 
-            $("a[href^='#']").click(function (e){
-               e.preventDefault();
+        $("a[href^='#']").click(function (e){
+           e.preventDefault();
 
-               var position = $($(this).attr("href")).offset().top;
+           var position = $($(this).attr("href")).offset().top;
 
-               $("body, html").animate({
-                       scrollTop: position
-                   },
-                   2000);
-            });
+            if($(window).width() > 767){
+                $("body, html").animate({
+                   scrollTop: position
+                }, 2000);   
+            }else{
+                $("body, html").animate({
+                   scrollTop: position - headerHeight
+                }, 2000);
+            }
+        });
         
                 
         var elementOffset = $("#promise-inner").offset().top,
@@ -178,7 +185,38 @@
                 var theta = $(window).scrollTop() / 500 % Math.PI;
                 $('.round-logo').css({ transform: 'rotate(' + theta + 'rad)' });
             //}
+            
+            if($(window).scrollTop() > $(".our-values-section").offset().top - 150){
+                $(".promise-inner, .promise-bg").css({
+                    'z-index' : 1,
+                });
+                $(".footer-fixed-section").css({
+                    'z-index' : 2,
+                });
+            }else{
+                $(".promise-inner, .promise-bg").css({
+                    'z-index' : 2,
+                });
+                $(".footer-fixed-section").css({
+                    'z-index' : 1,
+                });
+            }
         }); 
+        
+        
+        var footerHeight = $(".footer-fixed-section").outerHeight();
+        
+        $(".home-content").css({
+            'margin-bottom' : footerHeight + 'px'
+        })
+        
+        $(window).on("resize", function(){
+            var footerHeight = $(".footer-fixed-section").outerHeight();
+        
+            $(".home-content").css({
+                'margin-bottom' : footerHeight + 'px'
+            }) 
+        })
         
 
 	})// End ready function.

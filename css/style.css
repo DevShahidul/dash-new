@@ -75,7 +75,6 @@ body{background: rgb(255,255,255); -webkit-text-size-adjust: 100%; -moz-text-siz
 
 *{-webkit-box-sizing: border-box;-moz-box-sizing:border-box; box-sizing: border-box;}
 
-
 /* Global style */
 h1, h2, h3, h4, h5, h6, .small-title{font-family: 'Open Sans', sans-serif; font-weight: 400;}
 h1, h2, h3, h4, h5, h6{font-weight: 600;}
@@ -94,7 +93,6 @@ h6{font-size: 18px;line-height: 34px;}
 dfn, address, em{font-style: normal;}
 label, input[type="submit"]{cursor: pointer;}
 button:focus{outline: none;}
-
 
 section, footer, header{float: left; width: 100%; position: relative;}
 .bg-white{background-color: #ffffff;}
@@ -116,7 +114,6 @@ body,html{height: 100%;}
 .main-nav ul li{display: inline-block; margin: 0 34.5px}
 .main-nav ul li:last-child{margin-right: 0}
 .main-nav a{font-size: 12px; line-height: 17px; color: #ffffff; font-weight: 400; font-family: 'Open Sans', sans-serif; -webkit-transition: all .3s ease; -moz-transition: all .3s ease; transition: all .3s ease;}
-
 /* End header */
 
 /* Flex style */
@@ -128,7 +125,6 @@ body,html{height: 100%;}
 .order-1{-webkit-order: 1; -moz-order: 1; -ms-order: 1; order: 1;}
 .order-2{-webkit-order: 2; -moz-order: 2; -ms-order: 2; order: 2;}
 .flex{display: -webkit-flex; display: -moz-flex; display: -ms-flex; display: -o-flex; display: flex;}
-
 /* End Flex style */
 
 /* common style */
@@ -147,11 +143,8 @@ body,html{height: 100%;}
 /* //End footer style */
 
 /* Hero section */
-
 .hero-section{position: relative;background-color: #1b1b1c; height: 100vh; min-height: 772px;}
 .hero-info{position: absolute; left: 0; top: 50%; -webkit-transform: translateY(-50%);-moz-transform: translateY(-50%);transform: translateY(-50%);width: 100%;}
-
-/*.hero-section .common-wrap{height: 100%; position: relative}*/
 
 .scrolled{position: absolute; left: 0; bottom: 40px; width: 100%; }
 .scrolled .common-wrap{position: relative;}
@@ -174,7 +167,6 @@ body,html{height: 100%;}
 
 .preload-wrap:before{position: absolute; left: 0; top: 0; right: 0; bottom: 0; content: ""; background-color: #ff453f; 
 animation-name: vert_line_2; animation-iteration-count: 1; animation-duration: 3s; animation-timing-function: cubic-bezier(.445,.05,.55,.95); /*animation-direction: reverse;*/ animation-delay: 3s; transform-origin: top; -webkit-transform: scale(0,1) translate3d(0,0,0); -moz-transform: scale(0,1) translate3d(0,0,0); -webkit-transform: scale(0,1) translate3d(0,0,0); -moz-transform: scale(0,1) translate3d(0,0,0); transform: scale(0,1) translate3d(0,0,0); transition: opacity .4s cubic-bezier(.48,.02,0,.99), background-color .2s cubic-bezier(.48,.02,0,.99), transform .4s cubic-bezier(.215,.61,.355,1);}
-
 
 @-webkit-keyframes vert_line_2{
 0%{transform-origin:top left; transform:scale(0,1)}
@@ -213,7 +205,6 @@ animation-name: vert_line_2; animation-iteration-count: 1; animation-duration: 3
 .complete-type .page-top-content .ti-cursor{animation: stopBlink .5s 5 alternate forwards !important;}
 .page-top-content .ti-cursor{left: auto !important; position: absolute; bottom: 23px;right: 23px;}
 
-/*.page-top-content{display: none;}*/
 .home-banner{margin-top: 0; -webkit-transition: all .5s ease-in; -moz-transition: all .5s ease-in; transition: all .5s ease-in;}
 .page-top-content .left-column, .page-top-content .right-column{opacity: 0; -webkit-transition: all .5s ease-in; -moz-transition: all .5s ease-in; transition: all .5s ease-in;}
 .page-top-content .left-column{transition-delay: .5s;}
@@ -240,7 +231,6 @@ animation-name: vert_line_2; animation-iteration-count: 1; animation-duration: 3
 .preload-wrap:before{-webkit-animation-delay: .5s; -moz-animation-delay: .5s; animation-delay: .5s;}
 .homepageBody .preload-wrap:before{-webkit-animation-delay: 3.3s; -moz-animation-delay: 3.3s; animation-delay: 3.3s;}
 
-
 .hero-content h3, .hero-content h2 span:first-child, .hero-content h2 span:last-child{
     width: 100%;
     transform: translateY(150px);
@@ -250,9 +240,7 @@ animation-name: vert_line_2; animation-iteration-count: 1; animation-duration: 3
     animation-name: titleAnimation;
     animation-timing-function: ease;
     animation-duration: .8s;
-
 }
-
 
 .hero-content h2 span:first-child, .hero-content h2 span:last-child{float: left;}
 .hero-content h3{animation-delay: 0.2s; -webkit-animation-fill-mode: forwards;} 
@@ -272,7 +260,6 @@ animation-name: vert_line_2; animation-iteration-count: 1; animation-duration: 3
 .hero-content.go-top h2 span:first-child{transition-delay: 0.4s;}
 .hero-content.go-top h2 span:last-child{transition-delay: 0.2s;}
 
-
 @keyframes titleAnimation {
     0% {
         transform: translateY(100px);
@@ -290,7 +277,6 @@ animation-name: vert_line_2; animation-iteration-count: 1; animation-duration: 3
     }
 }
 
-
 @keyframes titleAnimationTop {
     0% {
         transform: translateY(0px);
@@ -307,7 +293,6 @@ animation-name: vert_line_2; animation-iteration-count: 1; animation-duration: 3
 
     }
 }
-
 
 .content .in-view ul,  .content .in-view p{animation-delay: .8s}
 .middle-content .in-view .lead-text, .middle-content .in-view p,  .content .in-view ul,  .content .in-view p{
@@ -350,8 +335,6 @@ animation-name: vert_line_2; animation-iteration-count: 1; animation-duration: 3
     }
 }
 
-
-
 /* Our promise section */
 .our-promise-section{position: static;}
 .promise-inner{overflow: hidden;}
@@ -370,7 +353,6 @@ animation-name: vert_line_2; animation-iteration-count: 1; animation-duration: 3
 .promise-content .content ul li{float: left; width: 100%; font-size: 40px; line-height: 60px; letter-spacing: -0.8px;}
 .promise-content .content p{float: right; width: 50%; max-width: 536px; margin-top: 37px; text-align: left;}
 
-
 /* lets-shake-section style */
 .lets-shake-section{padding-top: 279px; padding-bottom: 230px;}
 .lets-shake-inner{max-width: 885px;}
@@ -384,7 +366,6 @@ animation-name: vert_line_2; animation-iteration-count: 1; animation-duration: 3
 .our-values-section h2 span{display: inline-block; clear: both; opacity: 0;}
 .our-values-section  h2 span, .slide-contents .thumb{-webkit-transition: transform .8s ease-in, opacity .8s ease-in; -moz-transition: transform .8s ease-in, opacity .8s ease-in; transition: transform .8s ease-in, opacity .8s ease-in;}
 .our-values-section .swiper-slide-active  h2 span{transition-delay: 1.3s}
-/*.swiper-slide-active .slide-contents .thumb{transform: translateY(-80%); opacity: 0; transition-delay: 2.5s}*/
 .our-values-section .swiper-slide{padding-bottom: 60px;}
 .left-to-right{-webkit-transform: translateX(-25%); -moz-transform: translateX(-25%); transform: translateX(-25%);}
 .right-to-left{-webkit-transform: translateX(25%); -moz-transform: translateX(25%); transform: translateX(25%);}
@@ -400,7 +381,6 @@ animation-name: vert_line_2; animation-iteration-count: 1; animation-duration: 3
 .round-logo-wrap img{width: 100%; height: 100%; position: absolute; left: 0; top: 0;}
 .our-values-section .text-fill{-webkit-text-stroke-color: #ff453f;}
 .our-values-section .swippoer-controller{float: right; margin-top: -99px; position: relative; z-index: 999;}
-
 
 /* Featured works section style */
 .works-scroller-wrap{position: relative; text-align: center; min-height: 734px;}
@@ -440,9 +420,7 @@ animation-name: vert_line_2; animation-iteration-count: 1; animation-duration: 3
 .swiper-button-next:focus, .swiper-button-prev:focus, .swiper-button-next:active, .swiper-button-prev:active{outline: none; border: 0px;}
 .swiper-button-next{margin-left: 30px;}
 .swiper-button-next img, .swiper-button-prev img{display: block;}
-
 /* //End Featured works section style */
-
 
 /* Founder section style */
 .text-fill{position: relative; display: block; -webkit-text-fill-color: transparent; -webkit-text-stroke-color: #ffffff; -webkit-text-stroke-width: 1px;}
@@ -486,8 +464,6 @@ animation-name: vert_line_2; animation-iteration-count: 1; animation-duration: 3
 .slider-nav > button:focus{outline: none;}
 /* //End Founder section style */
 
-
-
 /* Next up section style */
 .next-up-section{float: left; width: 100%; padding-top: 170px; padding-bottom: 130px;}
 .next-up-inner h2{margin-top: 17px;}
@@ -513,7 +489,6 @@ animation-name: vert_line_2; animation-iteration-count: 1; animation-duration: 3
 .copy-right small, .copy-right small a{color: #cbcaca}
 /* End footer */
 
-
 /* =======================================================================================================
 ============================================ Responsive style ========================================== */
 
@@ -524,7 +499,6 @@ animation-name: vert_line_2; animation-iteration-count: 1; animation-duration: 3
 @media only screen and (min-width: 320px) and (max-width: 767px) {
     input[type="text"],input[type="email"],input[type="tel"],input[type="search"],input[type="number"],input[type="submit"],input[type="password"],select,textarea{-webkit-appearance:none;-moz-appearance:none;appearance:none;}
     
-
     body{font-size: 14px; line-height: 25px;}
     .common-wrap, md-container, .sm-container{padding: 0 35px;}
     
@@ -581,7 +555,6 @@ animation-name: vert_line_2; animation-iteration-count: 1; animation-duration: 3
     .works-scroller-inner .swiper-slide.swiper-slide-active h2{opacity: 1; visibility: visible;}
     .works-scroller-inner .swiper-slide a{position: relative;}
     .swiper-slide-active .caption{margin-top: 35px;}
-    /*.work-scroller-figure{max-width: 232px;}*/
     .controlling-wrap{position: relative; float: left; width: 100%; left: auto; bottom: auto; right: auto; margin-top: 45px;}
     .works-scroller-wrap .swiper-pagination-fraction, .feature-work-inner span{display: none;}
     .swipper-pagger{height: 0; overflow: hidden; visibility: hidden; opacity: 0;}
@@ -606,7 +579,7 @@ animation-name: vert_line_2; animation-iteration-count: 1; animation-duration: 3
     
     /* What we do section style */
     .next-up-section{padding-bottom: 18px; padding-top: 130px;}
-	    
+    
     /* Beginning footer style */
     .footer-fixed-section{position: relative; left: auto; bottom: auto;}
     .main-footer{padding: 30px 0 0 0;}
@@ -620,11 +593,6 @@ animation-name: vert_line_2; animation-iteration-count: 1; animation-duration: 3
     .footer-widget-column:nth-child(2){margin: 15px 0 0 0;}
     .column-right .footer-widget{width: 100%; margin: 15px 0 0 0;}
     /* //End footer style */
-    
-
-
-
-
 }
 
 

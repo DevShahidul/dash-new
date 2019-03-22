@@ -386,6 +386,8 @@ animation-name: vert_line_2; animation-iteration-count: 1; animation-duration: 3
 
 /* Featured works section style */
 .works-scroller-wrap{position: relative; text-align: center; min-height: 734px;}
+.feature-work-section:before,.feature-work-section:after{content: ""; position: absolute; left: 0; top: 0; bottom: 0; width: 25%; background: transparent; z-index: 9;}
+.feature-work-section:after{left: auto; right: 0;}
 .feature-work-inner{padding-top: 78px; font-family: 'Open Sans', sans-serif; font-weight: 400;}
 .feature-work-inner span{float: left; font-family: 'Open Sans', sans-serif; font-weight: 600; letter-spacing: -0.8px;}
 .all-works-link{float: right; position: relative; padding-left: 25px; color: #ffffff; font-family: 'Open Sans', sans-serif; font-size: 12px; line-height: 17px;}
@@ -568,6 +570,7 @@ animation-name: vert_line_2; animation-iteration-count: 1; animation-duration: 3
     .caption pre{font-size: 12px;}
     .swippoer-controller-wrap{float: left; width: 100%; text-align: center;}
     .swippoer-controller{float: none; width: 85px; margin: 0 auto; clear: both;}
+    .feature-work-section:before,.feature-work-section:after{opacity: 0; visibility: hidden}
     
     /* Founder section style */
     .founders-slider-section{padding-bottom: 47px; padding-top: 45px;}
@@ -625,6 +628,9 @@ animation-name: vert_line_2; animation-iteration-count: 1; animation-duration: 3
     .founder-content-wrap{position: absolute; left: 0; bottom: 20px; margin-left: 0; width: 100%; margin-top: 0; text-align: center;}
     .slider-figure{float: none; margin: 0 auto;}
     .founder-slider-controller{width: 80px; margin: 47px auto 0; clear: both; overflow: hidden; float: none;}
+    
+    /* Feature work section */
+    .feature-work-section:before,.feature-work-section:after{opacity: 0; visibility: hidden}
 	
     /* Beginning footer style */
     .footer-widget{width: 20%; margin-left: 5%;}
@@ -640,6 +646,9 @@ animation-name: vert_line_2; animation-iteration-count: 1; animation-duration: 3
 
 @media only screen and (min-width: 992px) and (max-width: 1024px) {
     input[type="text"],input[type="email"],input[type="tel"],input[type="search"],input[type="number"],input[type="submit"],input[type="password"],select,textarea{-webkit-appearance:none;-moz-appearance:none;appearance:none;}
+    
+    /* Feature work section */
+    .feature-work-section:before,.feature-work-section:after{opacity: 0; visibility: hidden}
 	
 }
 

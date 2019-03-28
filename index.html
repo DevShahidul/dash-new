@@ -21,12 +21,10 @@
             <div class="common-wrap clear header-inner">
                 <div class="logo-wrap">
                     <div class="main-logo">
-                        <a href="index.html" class="logo"><img src="svg/Logo-white.svg" alt=""></a>
+                        <a href="index.html" class="logo"><img src="svg/Logo-white.svg" alt="" class="white-logo"><img src="svg/Logo.svg" alt="" class="black-logo"></a>
                     </div>
                     <div class="phone-nav" id="phone-nav">
-                        <div></div>
-                        <div></div>
-                        <div></div>
+                        <div><span>close</span></div>
                     </div>
                 </div>
                 <div class="nav-wrap">
@@ -104,7 +102,7 @@
 
             <!-- Let’s shake on it section -->
             <section class="lets-shake-section bg-white z-index-10">
-                <div class="common-wrap clear lets-shake-inner">
+                <div class="common-wrap clear lets-shake-inner animate">
                     <span class="small-text">Let’s shake on it</span>
                     <h2>We’re so sure that we can meet our promise that if we don’t, we’ll return 25% of the project fee. No questions asked.</h2>
                 </div>
@@ -126,11 +124,8 @@
                                     <span class="right-to-left">dog thinks you are</span>
                                 </h2>
                                 <div class="value-thumb position-relative">
+                                   <div class="after"></div>
                                     <img src="img/our-value-thumb.jpg" alt="" class="thumb">
-                                    <div class="round-logo-wrap">
-                                        <img src="svg/DashDigitalValues.svg" alt="" class="round-logo">
-                                        <img src="img/dash-digital-round-logo-icon.png" alt="" class="round-logo-icon">
-                                    </div>
                                 </div>
                             </div>
                         </div>
@@ -141,11 +136,8 @@
                                     <span class="right-to-left">Always be honest</span>
                                 </h2>
                                 <div class="value-thumb position-relative">
+                                    <div class="after"></div>
                                     <img src="img/Honest.jpg" alt="" class="thumb">
-                                    <div class="round-logo-wrap">
-                                        <img src="svg/DashDigitalValues.svg" alt="" class="round-logo">
-                                        <img src="img/dash-digital-round-logo-icon.png" alt="" class="round-logo-icon">
-                                    </div>
                                 </div>
                             </div>
                         </div>
@@ -156,11 +148,8 @@
                                     <span class="right-to-left">Lead through service</span>
                                 </h2>
                                 <div class="value-thumb position-relative">
+                                    <div class="after"></div>
                                     <img src="img/Service.jpg" alt="" class="thumb">
-                                    <div class="round-logo-wrap">
-                                        <img src="svg/DashDigitalValues.svg" alt="" class="round-logo">
-                                        <img src="img/dash-digital-round-logo-icon.png" alt="" class="round-logo-icon">
-                                    </div>
                                 </div>
                             </div>
                         </div>
@@ -171,11 +160,8 @@
                                     <span class="right-to-left">Make things happen</span>
                                 </h2>
                                 <div class="value-thumb position-relative">
+                                    <div class="after"></div>
                                     <img src="img/Happen.jpg" alt="" class="thumb">
-                                    <div class="round-logo-wrap">
-                                        <img src="svg/DashDigitalValues.svg" alt="" class="round-logo">
-                                        <img src="img/dash-digital-round-logo-icon.png" alt="" class="round-logo-icon">
-                                    </div>
                                 </div>
                             </div>
                         </div>
@@ -186,17 +172,21 @@
                                     <span class="right-to-left">Be humble</span>
                                 </h2>
                                 <div class="value-thumb position-relative">
+                                    <div class="after"></div>
                                     <img src="img/Humble.jpg" alt="" class="thumb">
-                                    <div class="round-logo-wrap">
-                                        <img src="svg/DashDigitalValues.svg" alt="" class="round-logo">
-                                        <img src="img/dash-digital-round-logo-icon.png" alt="" class="round-logo-icon">
-                                    </div>
                                 </div>
                             </div>
                         </div>
                     </div>
-
-                    <div class="common-wrap clear">
+                    <div class="round-dash-logo">
+                        <div class="dash-logo-wrapper clear">
+                            <div class="round-logo-wrap">
+                                <img src="svg/DashDigitalValues.svg" alt="" class="round-logo">
+                                <img src="img/dash-digital-round-logo-icon.png" alt="" class="round-logo-icon">
+                            </div>
+                        </div>
+                    </div>
+                    <div class="common-wrap clear controller-wrap">
                         <!-- Add Arrows -->
                         <div class="swippoer-controller">
                             <div class="swiper-button-prev"><img src="svg/arrow-left-black.svg" alt=""></div>
@@ -446,12 +436,16 @@
                 if ($("#our-values-slider-wrap").length) {
                     var swiper = new Swiper('#our-values-slider-wrap', {
                         loop: false,
+                        effect: 'fade',
+                        fadeEffect: {
+                            crossFade: true
+                        },
                         navigation: {
                             nextEl: '.swiper-button-next',
                             prevEl: '.swiper-button-prev',
                         },
                         //mousewheel: true,
-                        speed: 1500,
+                        speed: 1300,
                         onSlideChangeStart: function(swiper) {
                             console.log(swiper);
                             console.log("I am changed")
@@ -466,15 +460,38 @@
                     $(".swiper-slide-next .left-to-right").css({
                         'transform': 'translateX(-' + 101 + '%)'
                     });
+                    
+                    $(".slide-contents .value-thumb .after").css({
+                        'transform' : 'translateY('+ 100 + '%)'
+                    });
+                    
+                    function resetTransition(){
+                        $(".slide-contents .value-thumb .after").css({
+                            'transform' : 'translateY(' + 100 +'%)'
+                        });
+                    }
 
                     $(".our-values-slider-wrap .swiper-button-prev").click(function() {
                         $(".swiper-slide-next .right-to-left").css({
                             'transform': 'translateX(-' + 101 + '%)'
                         });
+                        $(".slide-contents .value-thumb .after").css({
+                            'transform' : 'translateY(' + 0 +'px)'
+                        });
                         $(".swiper-slide-next .left-to-right").css({
                             'transform': 'translateX(' + 101 + '%)'
                         });
+                        setTimeout(resetTransition, 950);
                     });
+                    
+                    $(".our-values-slider-wrap .swiper-button-next").click(function() {
+                        $(".slide-contents .value-thumb .after").css({
+                            'transform' : 'translateY(' + 0 +'px)'
+                        });
+                        setTimeout(resetTransition, 800);
+                    });
+                    
+                    
 
                 }
 

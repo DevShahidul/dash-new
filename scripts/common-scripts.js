@@ -25,6 +25,7 @@
         // Phone nav click function 
         $('#phone-nav').click(function(){
             $(".nav-wrap").slideToggle();
+            $("body").toggleClass("navExpanded");
         });
         
         

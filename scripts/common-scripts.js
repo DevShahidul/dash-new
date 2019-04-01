@@ -24,8 +24,14 @@
 		
         // Phone nav click function 
         $('#phone-nav').click(function(){
-            $(".nav-wrap").slideToggle();
             $("body").toggleClass("navExpanded");
+            if($(".nav-wrap").is(":visible")){
+                $(".nav-wrap").slideUp();   
+                $(".nav-wrap span").hide();
+            }else{
+                $(".nav-wrap span").delay(200).fadeIn();
+                $(".nav-wrap").slideDown();
+            }
         });
         
         

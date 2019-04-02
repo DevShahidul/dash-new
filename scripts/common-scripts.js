@@ -193,7 +193,7 @@
                 $('.round-logo').css({ transform: 'rotate(' + theta + 'rad)' });
             //}
             
-            if($(window).scrollTop() > $(".our-values-section").offset().top - 150){
+            if($(window).scrollTop() > $(".before-footer").offset().top - 150){
                 $(".promise-inner, .promise-bg").css({
                     'z-index' : 1,
                 });
@@ -213,20 +213,20 @@
         
         var footerHeight = $(".footer-fixed-section").outerHeight();
         
-        $(".home-content").css({
+        $(".main-content-wrap").css({
             'margin-bottom' : footerHeight + 'px'
         })
         
         $(window).on("resize", function(){
             var footerHeight = $(".footer-fixed-section").outerHeight();
         
-            $(".home-content").css({
+            $(".main-content-wrap").css({
                 'margin-bottom' : footerHeight + 'px'
             }) 
-        })
-        
+        });
 
 	})// End ready function.
+    
 
 })(jQuery)
 

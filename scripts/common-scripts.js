@@ -82,63 +82,63 @@
             }
         });
         
-                
-        var elementOffset = $("#promise-inner").offset().top,
-            elementHeight = $("#promise-inner").outerHeight(),
-            elementWidth = $("#promise-inner").outerWidth(),
-            windoHeight = $(window).outerHeight();
-        
-        $(window).on("scroll", function(){
-            
-            var windowScroll = $(this).scrollTop();
-            
-            
-            if($(window).scrollTop() > elementOffset - windoHeight){
-                let scrollTop = document.documentElement.scrollTop;
-                let scrollHeight = document.documentElement.scrollHeight - document.documentElement.clientHeight;
-                let progress = 100 * (scrollTop - elementOffset) / elementWidth;
-                document.querySelector("#overlay-progressbar").style.width = progress + 20 + "%";
-                
-                
-            }
-            
-            if($(window).scrollTop() > (elementOffset - windoHeight) + elementHeight ){
-                $("body").addClass("overlay-animate");
-                $("body").addClass("start-animate");
-                $("#promise-inner").css({
-                    "position": "fixed",
-                    "bottom" : 0,
-                })
-                $(".promise-content").css({
-                    "margin-top" : elementHeight
-                });    
-                
-            }else{
-                $("body").removeClass("start-animate");
-                //$("body").removeClass("overlay-animate");
-                $("#promise-inner").css({
-                    "position": "relative",
-                    "bottom" : "auto",
-                })
-                $("#overlay-progressbar").width(0);
-                //$background.css({'background-position':'center center'});
-            }            
-            
-            // The social div 
-            var $content = $('.hero-content');
+        if($("#promise-inner").length){
+            var elementOffset = $("#promise-inner").offset().top,
+                elementHeight = $("#promise-inner").outerHeight(),
+                elementWidth = $("#promise-inner").outerWidth(),
+                windoHeight = $(window).outerHeight();
 
-            //Get scroll position of window 
-            var windowScroll = $(this).scrollTop();
+            $(window).on("scroll", function(){
 
-            //Slow scroll of social div and fade it out 
-            if(windowScroll > 20){
-                $content.addClass("go-top");
-            }else{
-                $content.removeClass("go-top");
-            }
-            
-        });
-        
+                var windowScroll = $(this).scrollTop();
+
+
+                if($(window).scrollTop() > elementOffset - windoHeight){
+                    let scrollTop = document.documentElement.scrollTop;
+                    let scrollHeight = document.documentElement.scrollHeight - document.documentElement.clientHeight;
+                    let progress = 100 * (scrollTop - elementOffset) / elementWidth;
+                    document.querySelector("#overlay-progressbar").style.width = progress + 20 + "%";
+
+
+                }
+
+                if($(window).scrollTop() > (elementOffset - windoHeight) + elementHeight ){
+                    $("body").addClass("overlay-animate");
+                    $("body").addClass("start-animate");
+                    $("#promise-inner").css({
+                        "position": "fixed",
+                        "bottom" : 0,
+                    })
+                    $(".promise-content").css({
+                        "margin-top" : elementHeight
+                    });    
+
+                }else{
+                    $("body").removeClass("start-animate");
+                    //$("body").removeClass("overlay-animate");
+                    $("#promise-inner").css({
+                        "position": "relative",
+                        "bottom" : "auto",
+                    })
+                    $("#overlay-progressbar").width(0);
+                    //$background.css({'background-position':'center center'});
+                }            
+
+                // The social div 
+                var $content = $('.hero-content');
+
+                //Get scroll position of window 
+                var windowScroll = $(this).scrollTop();
+
+                //Slow scroll of social div and fade it out 
+                if(windowScroll > 20){
+                    $content.addClass("go-top");
+                }else{
+                    $content.removeClass("go-top");
+                }
+
+            });   
+        }
         
         if ($("#founder-slider").length) {
 
@@ -224,6 +224,10 @@
                 'margin-bottom' : footerHeight + 'px'
             }) 
         });
+        
+        if($(".contact-content").length){
+            $("body").addClass("contact-page-body")
+        }
 
 	})// End ready function.
     

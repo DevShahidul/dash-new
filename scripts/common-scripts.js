@@ -192,22 +192,35 @@
                 var theta = $(window).scrollTop() / 500 % Math.PI;
                 $('.round-logo').css({ transform: 'rotate(' + theta + 'rad)' });
             //}
-            
-            if($(window).scrollTop() > $(".before-footer").offset().top - 150){
-                $(".promise-inner, .promise-bg").css({
-                    'z-index' : 1,
-                });
-                $(".footer-fixed-section").css({
-                    'z-index' : 2,
-                });
+            if($(".promise-inner").length){
+                if($(window).scrollTop() > $(".before-footer").offset().top - 150){
+                    $(".promise-inner, .promise-bg").css({
+                        'z-index' : 1,
+                    });
+                    $(".footer-fixed-section").css({
+                        'z-index' : 2,
+                    });
+                }else{
+                    $(".promise-inner, .promise-bg").css({
+                        'z-index' : 2,
+                    });
+                    $(".footer-fixed-section").css({
+                        'z-index' : 1,
+                    });
+                }
             }else{
-                $(".promise-inner, .promise-bg").css({
-                    'z-index' : 2,
-                });
-                $(".footer-fixed-section").css({
-                    'z-index' : 1,
-                });
+
+                if($(window).scrollTop() > $(".before-footer").offset().top - 150){
+                    $(".footer-fixed-section").css({
+                        'z-index' : 2,
+                    });
+                }else{
+                    $(".footer-fixed-section").css({
+                        'z-index' : 1,
+                    });
+                }
             }
+            
         }); 
         
         

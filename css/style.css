@@ -81,7 +81,7 @@ h1, h2, h3, h4, h5, h6{font-weight: 600;}
 
 h1, h2{font-size: 30px; line-height: 42px; letter-spacing: -0.75px}
 h3{font-size: 20px}
-h6{font-size: 18px;line-height: 34px;}
+h6{font-size: 16px;line-height: 25px;}
 .small-text{font-size: 15px; line-height: 22px;}
 .z-index-10{z-index: 10 !important;}
 .position-relative{position: relative !important;;}
@@ -561,10 +561,10 @@ animation-name: vert_line_2; animation-iteration-count: 1; animation-duration: 3
 .careers-section .body-link:before{position: absolute; left: 0; content: ""; width: 25px; height: 25px; border-radius: 50%; border: 1px solid #1b1b1c; background-image: url(../svg/arrow-right-black.svg); background-repeat: no-repeat; background-position: center center; background-size: 4px 6px;}
 
 /* Contact page style */
-.white-nav-content .main-nav a{color: #1b1b1c;}
-.white-nav-content .main-nav .current-menu-item a{color: #f14339;}
-.white-nav-content .main-logo .black-logo{display: block;}
-.white-nav-content .main-logo .white-logo{display: none;}
+.white-nav-page-body .main-nav a{color: #1b1b1c;}
+.white-nav-page-body .main-nav .current-menu-item a{color: #f14339;}
+.white-nav-page-body .main-logo .black-logo{display: block;}
+.white-nav-page-body .main-logo .white-logo{display: none;}
 
 .column{float: left; width: 50%;}
 .left-column{float: left;}
@@ -603,32 +603,39 @@ animation-name: vert_line_2; animation-iteration-count: 1; animation-duration: 3
 /* End contact */
 
 /* Work page style */
+.work-hero-section{float: left; width: 100%; padding-left: 169px;}
+.work-hero-section .scroll{color: #1b1b1c;}
+.work-hero-section .scroll:after{background-color: #1b1b1c;}
 .work-content{padding-top: 120px;}
 .work-content .banner{min-height: 735px;}
-.work-content .home-banner, .work-content .banner{margin-top: 0}
+.work-content .home-banner, .work-content .banner{margin-top: 0;}
+.work-content .middle-content{padding: 0px}
 .client-overview-wrap{padding: 146px 0 188px;}
 .client-overview-row{float: left; width: 100%; margin-top: 51px;}
+/*.client-overview-row h6, .client-overview-row .single-service .date + h6{font-size: 16px; line-height: 25px;}*/
 .client-overview-row:first-child{margin-top: 0}
 .client-overview-row .single-service{width: 44.91525423728814%; float: right; margin: 0 16.169492% 0 0;}
 .client-overview-row .single-service .date + h6{margin: 18px 0 0;}
 .client-overview-row .single-service ul{margin: 26px 0 0;}
 .client-overview-row .column h4{font-size: 40px; line-height: 50px; color: #ff453f; letter-spacing: -2px; font-weight: 600;}
-.article{font-size: 20px; line-height: 25px; color: #979797; margin-top: 23px; font-family: 'Open Sans', sans-serif; max-width: 270px;}
+.bg-dark-gray .client-overview-row .column h4, .bg-dark-gray .client-overview-row .column p, .bg-dark-gray .client-overview-row h6, .bg-dark-gray .client-overview-row li{color: #ffffff;}
+.article{font-size: 18px; line-height: 25px; color: #979797; margin-top: 16px; font-family: 'Open Sans', sans-serif; max-width: 330px;}
+.bg-dark-gray .article{color: #eaeaea;}
 .client-overview-row .column p{margin-top: 25px; color: rgba(27, 27, 28, .50)}
 
 .client-overview-row .column.right-column{float: right;}
 .date{margin-top: 8px;}
 .middle-thum{float: left; width: 100%; min-height: 770px; background-color: #f7f7f7}
-.middle-content-wrap{padding: 160px 0 152px; float: left; width: 100%}
+.middle-thum img{width: 100%;}
+.middle-content-wrap{padding: 90px 0; float: left; width: 100%}
 .middle-content-wrap .common-wrap{position: relative}
-.middle-content{max-width: 556px}
+.work-content .middle-content{max-width: 556px}
 .middle-content-left .middle-content{float: left; }
 .middle-content-right .middle-content{float: right; }
-.middle-content h6:after{position: absolute; top: 0; content: ""; width: 39px; height: 6px; background-color: 
-#ff453f; margin: 8px 0 0;}
-.middle-content p{margin-top: 26px; color: rgba(27, 27, 28, 0.5)}
+.work-content .middle-content p{margin-top: 26px; color: rgba(27, 27, 28, 0.5)}
 
-.branding-thum{background-color: #f7f7f7; min-height: 645px; margin-top: 36px;}
+.branding-section{margin-top: 18px;}
+.branding-thum{background-color: #f7f7f7; min-height: 645px;}
 .branding-wrap{float: left; width: 100%}
 .branding-wrap-item{float: left; width: 50%; background-color: #f0f0f0; min-height: 348px}
 .gray-background{background-color: #dddddd}
@@ -787,12 +794,12 @@ animation-name: vert_line_2; animation-iteration-count: 1; animation-duration: 3
     
     /* Beginning contact page style */
     .banner{min-height: 237px;}
-    .white-nav-content .main-logo .black-logo, .white-nav-content.navExpanded .main-logo .white-logo{display: none;}
+    .white-nav-page-body .main-logo .black-logo, .white-nav-page-body.navExpanded .main-logo .white-logo{display: none;}
     .contact-content .welcome-text{padding-top: 95px;}
     .welcome-text .top-content aritcle{float: left; max-width: 100%;}
     .contact-content .page-top-content .ti-cursor{font-size: 45px !important;}
     .welcome-text .left-column, .welcome-text .column{width: 100%;}
-    .contact-content .welcome-text .common-wrap, .white-nav-contentwhite-nav-contentwhite-nav-contentwhite-nav-contentwhite-nav-contentwhite-nav-contentwhite-nav-contentwhite-nav-contentwhite-nav-contentwhite-nav-contentwhite-nav-contentwhite-nav-contentwhite-nav-contentwhite-nav-contentwhite-nav-contentwhite-nav-contentwhite-nav-contentwhite-nav-contentwhite-nav-contentwhite-nav-contentwhite-nav-contentwhite-nav-contentwhite-nav-contentwhite-nav-contentwhite-nav-contentwhite-nav-contentwhite-nav-contentwhite-nav-contentwhite-nav-contentwhite-nav-contentwhite-nav-contentwhite-nav-contentwhite-nav-contentwhite-nav-contentwhite-nav-contentwhite-nav-contentwhite-nav-contentwhite-nav-contentwhite-nav-contentwhite-nav-contentwhite-nav-contentwhite-nav-contentwhite-nav-contentwhite-nav-contentwhite-nav-contentwhite-nav-contentwhite-nav-contentwhite-nav-contentwhite-nav-contentwhite-nav-content .main-logo .white-logo, .white-nav-content.navExpanded .main-logo .black-logo{display: block;}
+    .contact-content .welcome-text .common-wrap, .white-nav-page-body .main-logo .white-logo, .white-nav-page-body.navExpanded .main-logo .black-logo{display: block;}
     .contact-info{padding-top: 25px;}
     .contact-content .top-content, .single-service, .process-content article{margin-top: 30px;}
     .address-wrap, .location{padding: 50px 0 0; margin: 50px 0  0;}

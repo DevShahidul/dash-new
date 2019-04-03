@@ -225,8 +225,8 @@
             }) 
         });
         
-        if($(".contact-content").length){
-            $("body").addClass("contact-page-body")
+        if($(".white-nav-content").length){
+            $("body").addClass("white-nav-page-body")
         }
 
 	})// End ready function.

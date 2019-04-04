@@ -140,6 +140,35 @@
             });   
         }
         
+        if($("#overlay-mask").length){
+            var elementOffset = $(".work-hero-section").offset().top,
+                elementHeight = $(".work-hero-section").outerHeight(),
+                elementWidth = $(".work-hero-section").outerWidth(),
+                windoHeight = $(window).outerHeight();
+
+            $(window).on("scroll", function(){
+                var overlay = document.getElementById('overlay-mask');
+
+                var windowScroll = $(this).scrollTop();
+
+
+                if($(window).scrollTop() > elementOffset - windoHeight){
+                    let scrollTop = document.documentElement.scrollTop;
+                    let scrollHeight = document.documentElement.scrollHeight - document.documentElement.clientHeight;
+                    let progress = windowScroll / elementHeight;
+                    var transformValue = 'scaleX('+progress+')';
+                    console.log(transformValue);
+                    
+                    overlay.style.WebkitTransform = transformValue;
+                    overlay.style.MozTransform = transformValue;
+                    overlay.style.OTransform = transformValue;
+                    overlay.style.transform = transformValue;
+                }          
+
+
+            });  
+        }
+        
         if ($("#founder-slider").length) {
 
             $("#founder-slider").on('init', function (event, slick, currentSlide, nextSlide) {

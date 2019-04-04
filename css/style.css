@@ -181,7 +181,7 @@ body,html{height: 100%;}
 .hero-section{position: relative;background-color: #1b1b1c; height: 100vh; min-height: 772px;}
 .hero-info{position: absolute; left: 0; top: 50%; -webkit-transform: translateY(-50%);-moz-transform: translateY(-50%);transform: translateY(-50%);width: 100%;}
 
-.scrolled{position: absolute; left: 0; bottom: 40px; width: 100%; }
+.scrolled{position: absolute; left: 0; bottom: 40px; width: 100%; z-index: 20;}
 .scrolled .common-wrap{position: relative;}
 
 .hero-content{color: #ffffff; align-self: center}
@@ -604,7 +604,8 @@ animation-name: vert_line_2; animation-iteration-count: 1; animation-duration: 3
 
 /* Work page style */
 .work-hero-section{float: left; width: 100%; padding-left: 169px;}
-.work-hero-section .scroll{color: #1b1b1c;}
+.work-hero-section .overlay-mask{position: absolute; left: 169px; top: 0; bottom: 0; right: 0; background: #ffffff; -webkit-transform-origin: left center; transform-origin: left center; z-index: 11; -webkit-transform: scaleX(0); transform: scaleX(0); transition: all 1s cubic-bezier(.38,.38,.7,.74);}
+.work-hero-section .scroll{color: #1b1b1c; margin-left: 60px;}
 .work-hero-section .scroll:after{background-color: #1b1b1c;}
 .work-content{padding-top: 120px;}
 .work-content .banner{min-height: 735px;}

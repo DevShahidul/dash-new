@@ -129,6 +129,7 @@ body,html{height: 100%;}
 
 /* header */
 .header-section{position: absolute; left: 0; top: -1px; margin-top: 1px; background: transparent; box-shadow: none; padding: 36px 0 25px; z-index: 999;}
+.white-nav-page-body .header-section{background-color: #ffffff;}
 .logo-wrap{float: left; width: auto}
 .main-logo a{display: block; text-align: left;}
 .main-logo .black-logo, .navExpanded .white-logo{display: none;}
@@ -309,6 +310,23 @@ animation-name: vert_line_2; animation-iteration-count: 1; animation-duration: 3
 @keyframes titleAnimation {
     0% {
         transform: translateY(100px);
+        opacity: 0;
+        -webkit-clip-path: polygon(100% 0, 100% 100%, 0 100%, 0 0);
+        clip-path: polygon(100% 0, 100% 100%, 0 100%, 0 0);
+    }
+
+    100% {
+        transform: translateY(0); 
+        opacity: 1;
+        -webkit-clip-path: polygon(100% 0, 100% 100%, 0 100%, 0 0);
+        clip-path: polygon(100% 0, 100% 100%, 0 100%, 0 0);
+
+    }
+}
+
+@keyframes slideContentAnimation {
+    0% {
+        transform: translateY(30px);
         opacity: 0;
         -webkit-clip-path: polygon(100% 0, 100% 100%, 0 100%, 0 0);
         clip-path: polygon(100% 0, 100% 100%, 0 100%, 0 0);
@@ -531,6 +549,7 @@ animation-name: vert_line_2; animation-iteration-count: 1; animation-duration: 3
 .all-work-section .works-scroller-wrap{position: absolute; left: 50%; top: 50%; min-height: 10px; -webkit-transform: translate(-50%, -50%); -moz-transform: translate(-50%, -50%); transform: translate(-50%, -50%);}
 
 /* What page style */
+.what-content .hero-content h2 span{float: none; width: auto;}
 .our-services .promise-content .content{width: 50%; padding-top: 0; float: right;}
 .our-services .promise-content span{float: left; width: 50%; padding-right: 100px;}
 .our-services .promise-content .content ul{width: 100%; padding-right: 0;}
@@ -553,9 +572,14 @@ animation-name: vert_line_2; animation-iteration-count: 1; animation-duration: 3
 .process-slider-content-wrap,.process-slide-counter-inner{padding-top: 40px; border-top: 1px solid rgba(27, 27, 28, .50);}
 .process-slide-counter-inner{width: 73.47266881028939%; float: left;}
 .process-slide-counter-inner .text-fill{-webkit-text-stroke-color: #ff453f; text-stroke-color: #ff453f;font-size: 120px; line-height: 138px;}
+.process-slide-counter-inner .number{display: inline-block; max-width: 120px; vertical-align: middle;}
 .process-slide h2{font-size: 50px; line-height: 55px; letter-spacing: -1px;}
-.process-slide p{padding-top: 60px; color: rgba(27, 27, 28, .62);}
+.process-slide p, .process-slide .body-copy{padding-top: 60px; color: rgba(27, 27, 28, .62);}
 
+.body-copy{position: relative; width: 100%; height: auto;}
+.body-copy-two{position: absolute; visibility: hidden; height: 0; padding: 0; margin: 0;}
+.body-copy span, .process-slide h2{display:block; transform: translateY(150px); opacity: 0; -webkit-clip-path: polygon(100% 0, 100% 100%, 0 100%, 0 0); clip-path: polygon(100% 0, 100% 100%, 0 100%, 0 0); animation-timing-function: ease; animation-duration: .8s; -webkit-animation-fill-mode: forwards;}
+.slick-current .body-copy span, .slick-current .process-slide h2{animation-name: slideContentAnimation;}
 /* Careers section */
 .careers-section .body-link{padding-left: 45px; position: relative; color: #1b1b1c; font-size: 12px; line-height: 25px; margin-top: 25px;}
 .careers-section .body-link:before{position: absolute; left: 0; content: ""; width: 25px; height: 25px; border-radius: 50%; border: 1px solid #1b1b1c; background-image: url(../svg/arrow-right-black.svg); background-repeat: no-repeat; background-position: center center; background-size: 4px 6px;}
@@ -603,7 +627,7 @@ animation-name: vert_line_2; animation-iteration-count: 1; animation-duration: 3
 /* End contact */
 
 /* Work page style */
-.work-hero-section{float: left; width: 100%; padding-left: 169px;}
+.work-hero-section{float: left; width: 100%; padding-left: 169px; position: fixed; left: 0; z-index: 1;}
 .work-hero-section .overlay-mask{position: absolute; left: 169px; top: 0; bottom: 0; right: 0; background: #ffffff; -webkit-transform-origin: left center; transform-origin: left center; z-index: 11; -webkit-transform: scaleX(0); transform: scaleX(0); transition: all 1s cubic-bezier(.38,.38,.7,.74);}
 .work-hero-section .scroll{color: #1b1b1c; margin-left: 60px;}
 .work-hero-section .scroll:after{background-color: #1b1b1c;}
@@ -611,7 +635,7 @@ animation-name: vert_line_2; animation-iteration-count: 1; animation-duration: 3
 .work-content .banner{min-height: 735px;}
 .work-content .home-banner, .work-content .banner{margin-top: 0;}
 .work-content .middle-content{padding: 0px}
-.client-overview-wrap{padding: 146px 0 188px;}
+.client-overview-wrap{padding: 146px 0 188px; margin-top: 735px;}
 .client-overview-row{float: left; width: 100%; margin-top: 51px;}
 /*.client-overview-row h6, .client-overview-row .single-service .date + h6{font-size: 16px; line-height: 25px;}*/
 .client-overview-row:first-child{margin-top: 0}
@@ -635,7 +659,8 @@ animation-name: vert_line_2; animation-iteration-count: 1; animation-duration: 3
 .middle-content-right .middle-content{float: right; }
 .work-content .middle-content p{margin-top: 26px; color: rgba(27, 27, 28, 0.5)}
 
-.branding-section{margin-top: 18px;}
+.branding-section{padding-top: 0px;}
+.branding-section .branding-thum{margin-top: 18px;}
 .branding-thum{background-color: #f7f7f7; min-height: 645px;}
 .branding-wrap{float: left; width: 100%}
 .branding-wrap-item{float: left; width: 50%; background-color: #f0f0f0; min-height: 348px}
@@ -645,6 +670,7 @@ animation-name: vert_line_2; animation-iteration-count: 1; animation-duration: 3
 .work-indivitual-content h2{color: #fff; letter-spacing: -2.5px;}
 .work-indivitual-content a{margin-top: 40px; color: #fff; font-size: 14px; line-height: 38px; margin-left: 60px; position: relative}
 .work-indivitual-content a:before{position: absolute; content: ""; left: -60px; top: 19px; width: 39px; background-color: #fff; height: 1px}
+
 /* End Work page style */
 
 /* footer */
@@ -788,7 +814,8 @@ animation-name: vert_line_2; animation-iteration-count: 1; animation-duration: 3
     .process-slide-counter{position: absolute; right: 35px; width: auto}
     .process-slider-content-wrap, .process-slide-counter-inner{border-top: 0px;}
     .process-slide h2{border-bottom: 1px solid rgba(27, 27, 28, .50); padding-bottom: 30px; font-size: 28px; line-height: 35px;}
-    .process-slide-counter-inner{padding-top: 0;}
+    .process-slide-counter-inner{padding-top: 0; width: auto;}
+    .process-slide-counter-inner .number{max-width: 30px;}
     .process-slide-counter-inner .text-fill{font-size: 50px; line-height: 55px;}
     .process-slide p{padding-top: 30px;}
     .careers-section{padding-bottom: 0;}
@@ -825,6 +852,11 @@ animation-name: vert_line_2; animation-iteration-count: 1; animation-duration: 3
     .middle-content-left .middle-content h6:after, .middle-content-right .middle-content h6:after{left: auto; right: 20px; width: 30px;}
     .work-indivitual-thum{margin-top: 35px}
     
+    .work-hero-section{padding-left: 60px;}
+    .work-hero-section .overlay-mask{left: 60px;}
+    .work-hero-section .scroll{margin-left: 30px;}
+    .column{width: 100%;}
+    
     /* Beginning footer style */
     .footer-fixed-section{position: relative !important; left: auto; bottom: auto;}
     .main-footer{padding: 30px 0 0 0;}
@@ -858,6 +890,7 @@ animation-name: vert_line_2; animation-iteration-count: 1; animation-duration: 3
     /* What page style */
     .hero-info{padding: 0 30px;}
     .hero-content .mobi br{display: none;}
+    .column{width: 50%;}
     
 }
 

@@ -216,21 +216,21 @@
         }
         
         
-        $(window).on("scroll", function(){
+        $(window).on("scroll load", function(){
             //if($(window).scrollTop() > $(".our-values-section").offset().top - 150){
                 var theta = $(window).scrollTop() / 500 % Math.PI;
                 $('.round-logo').css({ transform: 'rotate(' + theta + 'rad)' });
             //}
-            if($(".promise-inner").length){
+            if($(".before-footer").length){
                 if($(window).scrollTop() > $(".before-footer").offset().top - 150){
-                    $(".promise-inner, .promise-bg").css({
+                    $(".promise-inner, .promise-bg, .work-hero-section").css({
                         'z-index' : 1,
                     });
                     $(".footer-fixed-section").css({
                         'z-index' : 2,
                     });
                 }else{
-                    $(".promise-inner, .promise-bg").css({
+                    $(".promise-inner, .promise-bg, .work-hero-section").css({
                         'z-index' : 2,
                     });
                     $(".footer-fixed-section").css({
@@ -270,8 +270,92 @@
         if($(".white-nav-content").length){
             $("body").addClass("white-nav-page-body")
         }
+        
+        
+        $('#second-number-val').slick({
+          slidesToShow: 1,
+          slidesToScroll: 1,
+          arrows: false,
+          dots: false,
+          autoplaySpeed: 5000,
+          speed: 1000,
+          vertical: true,
+          //verticalSwiping: true,
+          asNavFor: '#process-slider-content-wrap'
+        });
+        
+        $('#process-slider-content-wrap').slick({
+          slidesToShow: 1,
+          slidesToScroll: 1,
+          asNavFor: '#second-number-val',
+          dots: false,
+          arrows: false,
+          fade: true,
+          //centerMode: true,
+          //focusOnSelect: false
+        });
+        
+        $("#our-process-slider-controller .slide-prev").click(function(){
+            $('#process-slider-content-wrap').slick("prev");
+        });
+        
+        $("#our-process-slider-controller .slide-next").click(function(){
+            $('#process-slider-content-wrap').slick("next");
+        });
+
+        
+        
+        if($(".body-copy").length){
+            wordWrap();   
+            
+            var delayTime = 0.4 
+            $('.body-copy').each(function(){
+                var $this = $(this);
+                $this.find("span").each(function(i){
+                    $(this).css({
+                       'animation-delay'  : delayTime + (i * .2) + 's'
+                    });  
+                })
+            })
+            
+        }
 
 	})// End ready function.
+    
+    function wordWrap() {
+        $(".body-copy").each(function(){
+          var bdy = $(this);
+          var body2 = bdy.parent().find(".body-copy-two");
+          var text = $(bdy).text();
+          var html = $(bdy).html();
+          var bWidth = $(bdy).width();
+          var words = text.split(" ");
+          var span = "";
+          var word = "";
+          var allSpans = "";
+          var lastWord = "";
+          $(words).each(function(i, w) {
+            if (lastWord != "") {
+              w = lastWord + " "+ w ;
+              lastWord = "";
+            };
+            word = w + " ";
+            span = span + word;
+            body2.append(word);
+            if (body2.width() >= bWidth) {
+              var wLen = word.length;
+              span = span.slice(0, -wLen);
+              lastWord = w + " ";
+              allSpans = allSpans + "<span>" + $.trim(span) + "</span>";
+              body2.html("");
+              span = "";
+              word = "";
+            }
+          });
+          var lastSpan = "<span>" + body2.text() + "</span>";
+          $(bdy).html(allSpans + lastSpan);
+        })
+    }
     
 
 })(jQuery)

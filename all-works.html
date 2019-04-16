@@ -53,7 +53,7 @@
                             <div class="swiper-container works-scroller-slider" id="works-scroller-slider">
                                 <div class="swiper-wrapper">
                                     <div class="swiper-slide">
-                                        <a href="index.html" class="animated-cursor">
+                                        <a href="work-itest.html" class="animated-cursor">
                                             <h2 class="text-fill" data-text="Karangani">Karangani</h2>
                                             <div class="work-scroller-figure">
                                                 <img src="img/AdobeStock_143186128.jpg" alt="">
@@ -64,7 +64,7 @@
                                         </div>
                                     </div>
                                     <div class="swiper-slide">
-                                        <a href="index.html" class="animated-cursor">
+                                        <a href="work-itest.html" class="animated-cursor">
                                             <h2 class="text-fill" data-text="Ramzy Ride">Ramzy Ride</h2>
                                             <div class="work-scroller-figure clear">
                                                 <img src="img/AdobeStock_143186128.jpg" alt="">
@@ -75,7 +75,7 @@
                                         </div>
                                     </div>
                                     <div class="swiper-slide">
-                                        <a href="index.html" class="animated-cursor">
+                                        <a href="work-itest.html" class="animated-cursor">
                                             <h2 class="text-fill" data-text="Brave">Brave</h2>
                                             <div class="work-scroller-figure">
                                                 <img src="img/AdobeStock_143186128.jpg" alt="">
@@ -86,7 +86,7 @@
                                         </div>
                                     </div>
                                     <div class="swiper-slide">
-                                        <a href="index.html" class="animated-cursor">
+                                        <a href="work-itest.html" class="animated-cursor">
                                             <h2 class="text-fill" data-text="Karangani">Karangani</h2>
                                             <div class="work-scroller-figure">
                                                 <img src="img/AdobeStock_143186128.jpg" alt="">
@@ -97,7 +97,7 @@
                                         </div>
                                     </div>
                                     <div class="swiper-slide">
-                                        <a href="index.html" class="animated-cursor">
+                                        <a href="work-itest.html" class="animated-cursor">
                                             <h2 class="text-fill" data-text="Ramzy Ride">Ramzy Ride</h2>
                                             <div class="work-scroller-figure clear">
                                                 <img src="img/AdobeStock_143186128.jpg" alt="">
@@ -240,30 +240,6 @@
                 }
 
             }); // End ready function
-
-            // Window load function 
-            $(window).on('load', function() {
-                $('.preload-wrap').addClass('loading');
-                $("#preloader_wrapper").addClass('loaded');
-
-                function removeFunction() {
-                    setTimeout(function() {
-                        $('.preload-wrap').addClass('loadEnd');
-                    }, 500);
-
-                    setTimeout(function() {
-                        $(".preload-wrap").delay(1500).fadeOut(function() {
-                            if ($(window).width() > 767) {
-                                setTimeout(function() {
-                                    $(".page-top-content").slideDown().parent().addClass('header-copy-shown');
-                                }, 1500);
-                            }
-                        });
-                    }, 2000);
-                }
-
-                removeFunction();
-            });
         })(jQuery);
     </script>
 </body>

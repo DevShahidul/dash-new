@@ -145,7 +145,7 @@
                 elementHeight = $(".work-hero-section").outerHeight(),
                 elementWidth = $(".work-hero-section").outerWidth(),
                 windoHeight = $(window).outerHeight();
-
+        
             $(window).on("scroll", function(){
                 var overlay = document.getElementById('overlay-mask');
 
@@ -221,6 +221,7 @@
                 var theta = $(window).scrollTop() / 500 % Math.PI;
                 $('.round-logo').css({ transform: 'rotate(' + theta + 'rad)' });
             //}
+                
             if($(".before-footer").length){
                 if($(window).scrollTop() > $(".before-footer").offset().top - 150){
                     $(".promise-inner, .promise-bg, .work-hero-section").css({
@@ -248,6 +249,12 @@
                         'z-index' : 1,
                     });
                 }
+            }
+            
+            if($(window).scrollTop() > 10){
+                $("body").addClass("navFixed")
+            }else{
+                $("body").removeClass("navFixed")
             }
             
         }); 

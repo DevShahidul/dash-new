@@ -291,7 +291,7 @@ animation-name: vert_line_2; animation-iteration-count: 1; animation-duration: 3
     animation-duration: .8s;
 }
 .hero-content h2,.hero-content h3{opacity: 0;}
-.loaded .hero-content h2, .loaded .hero-content h3{opacity: 1;}
+.loaded .hero-content h2{opacity: 1;}
 
 .loaded .hero-content h3, .loaded .hero-content h2 span{animation-name: titleAnimation;}
 

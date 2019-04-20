@@ -157,7 +157,7 @@
                     let scrollHeight = document.documentElement.scrollHeight - document.documentElement.clientHeight;
                     let progress = windowScroll / elementHeight;
                     var transformValue = 'scaleX('+progress+')';
-                    console.log(transformValue);
+                    //console.log(transformValue);
                     
                     overlay.style.WebkitTransform = transformValue;
                     overlay.style.MozTransform = transformValue;
@@ -252,28 +252,9 @@
                     }
                 }
 
-                /*if($(window).scrollTop() > 10){
-                    $("body").addClass("navFixed")
-                }else{
-                    $("body").removeClass("navFixed")
-                }*/
             }
             
         }); 
-        
-        /*$(window).on("load resize scroll", function(){
-            if($(".hero-section").length){
-                var heroHeight = $(".hero-section").outerHeight(),
-                    windowScrollPos = $(window).scrollTop();
-                if(windowScrollPos > heroHeight){
-                    $("body").addClass("black-nav");
-                }else{
-                    $("body").removeClass("black-nav");
-                }
-                
-                
-            }
-        });*/
         
         
         var footerHeight = $(".footer-fixed-section").outerHeight();
@@ -342,52 +323,34 @@
         }
         
         
-        
+        // Change nav color by section on scroll function.
         if($(".dark-section").length){
             var mywindow = $(window);
             var mypos = mywindow.scrollTop();
             var up = false;
             var newscroll;
             mywindow.on("load scroll resize", function(){
-                
                 newscroll = mywindow.scrollTop();
-                
-                /*$(".dark-section").each(function(){
-                    var blackSec = $(this);
-                    var startBlackSec = $(this).offset().top - 40;
-                    var endBlackSec = startBlackSec + blackSec.outerHeight();
-                    //var scrollTp = $(window).scrollTop();
-                    if((newscroll > startBlackSec && newscroll < endBlackSec) && (newscroll > mypos && !up) || newscroll < endBlackSec){
-                       console.log("Begin black section");
-                       $("body").addClass("whiteHeader");                     
-                       up = !up;
-                    }
-                    if(newscroll > endBlackSec + 20 || (newscroll < mypos && up) && (newscroll < startBlackSec)){
-                        $("body").removeClass("whiteHeader");
-                        up = !up;
-                    }
-                });*/
-                
                 var totalSection = $(".dark-section").length;
-                console.log(totalSection)
+                //console.log(totalSection)
                 $(".dark-section").each(function(){
                     var blackSec = $(this);
                     var startBlackSec = $(this).offset().top - 40;
                     var endBlackSec = startBlackSec + blackSec.outerHeight();
                     var scrollTp = $(window).scrollTop();
                     
-                    if(totalSection === 1){
+                    if(totalSection === 1){ // This is for single section
                         if(scrollTp > startBlackSec && scrollTp < endBlackSec){
-                           console.log("Begin black section");
+                           //console.log("Begin black section");
                            $("body").addClass("whiteHeader");
                         }
 
                         if(scrollTp > endBlackSec + 20 || scrollTp < startBlackSec){
                             $("body").removeClass("whiteHeader");
                         }   
-                    }else{
+                    }else{ // this is for multi section
                         if(scrollTp > startBlackSec && scrollTp < endBlackSec){
-                           console.log("Begin black section");
+                           //console.log("Begin black section");
                            $("body").addClass("whiteHeader");
                         }
 
@@ -400,29 +363,10 @@
                 
                 mypos = newscroll;
             });
-            
-            
-            
-            
-            
-            
-            
-            
-            /*$(window).on("load scroll resize", function(){
-                $(".dark-section").each(function(){
-                    var blackSec = $(this);
-                    var startBlackSec = $(this).offset().top - 40;
-                    var endBlackSec = startBlackSec + blackSec.outerHeight();
-                    var scrollTp = $(window).scrollTop();
-                    if(scrollTp > startBlackSec && scrollTp < endBlackSec){
-                       console.log("Begin black section");
-                       $("body").addClass("whiteHeader");
-                    }
-                    if(scrollTp > endBlackSec + 20){
-                        $("body").removeClass("whiteHeader");
-                    }
-                });
-            });*/
+        }
+        
+        if($(".four-zero-four-content").length || $(".all-works").length ){
+            $("body").addClass("whiteHeader");
         }
 
 	})// End ready function.

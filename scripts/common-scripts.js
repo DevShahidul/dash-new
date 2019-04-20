@@ -132,7 +132,7 @@
 
                 //Slow scroll of social div and fade it out 
                 if(windowScroll > 20){
-                    $content.addClass("go-top");
+                    $content.addClass("go-top");                   
                 }else{
                     $content.removeClass("go-top");
                 }
@@ -217,47 +217,63 @@
         
         
         $(window).on("scroll load", function(){
-            //if($(window).scrollTop() > $(".our-values-section").offset().top - 150){
-                var theta = $(window).scrollTop() / 500 % Math.PI;
-                $('.round-logo').css({ transform: 'rotate(' + theta + 'rad)' });
-            //}
-                
-            if($(".before-footer").length){
-                if($(window).scrollTop() > $(".before-footer").offset().top - 150){
-                    $(".promise-inner, .promise-bg, .work-hero-section").css({
-                        'z-index' : 1,
-                    });
-                    $(".footer-fixed-section").css({
-                        'z-index' : 2,
-                    });
-                }else{
-                    $(".promise-inner, .promise-bg, .work-hero-section").css({
-                        'z-index' : 2,
-                    });
-                    $(".footer-fixed-section").css({
-                        'z-index' : 1,
-                    });
-                }
-            }else{
+            if($(".footer-section").length){
+                //if($(window).scrollTop() > $(".our-values-section").offset().top - 150){
+                    var theta = $(window).scrollTop() / 500 % Math.PI;
+                    $('.round-logo').css({ transform: 'rotate(' + theta + 'rad)' });
+                //}
 
-                if($(window).scrollTop() > $(".before-footer").offset().top - 150){
-                    $(".footer-fixed-section").css({
-                        'z-index' : 2,
-                    });
+                if($(".before-footer").length){
+                    if($(window).scrollTop() > $(".before-footer").offset().top - 150){
+                        $(".promise-inner, .promise-bg, .work-hero-section").css({
+                            'z-index' : 1,
+                        });
+                        $(".footer-fixed-section").css({
+                            'z-index' : 2,
+                        });
+                    }else{
+                        $(".promise-inner, .promise-bg, .work-hero-section").css({
+                            'z-index' : 2,
+                        });
+                        $(".footer-fixed-section").css({
+                            'z-index' : 1,
+                        });
+                    }
                 }else{
-                    $(".footer-fixed-section").css({
-                        'z-index' : 1,
-                    });
+
+                    if($(window).scrollTop() > $(".before-footer").offset().top - 150){
+                        $(".footer-fixed-section").css({
+                            'z-index' : 2,
+                        });
+                    }else{
+                        $(".footer-fixed-section").css({
+                            'z-index' : 1,
+                        });
+                    }
                 }
-            }
-            
-            if($(window).scrollTop() > 10){
-                $("body").addClass("navFixed")
-            }else{
-                $("body").removeClass("navFixed")
+
+                /*if($(window).scrollTop() > 10){
+                    $("body").addClass("navFixed")
+                }else{
+                    $("body").removeClass("navFixed")
+                }*/
             }
             
         }); 
+        
+        /*$(window).on("load resize scroll", function(){
+            if($(".hero-section").length){
+                var heroHeight = $(".hero-section").outerHeight(),
+                    windowScrollPos = $(window).scrollTop();
+                if(windowScrollPos > heroHeight){
+                    $("body").addClass("black-nav");
+                }else{
+                    $("body").removeClass("black-nav");
+                }
+                
+                
+            }
+        });*/
         
         
         var footerHeight = $(".footer-fixed-section").outerHeight();
@@ -309,8 +325,6 @@
         $("#our-process-slider-controller .slide-next").click(function(){
             $('#process-slider-content-wrap').slick("next");
         });
-
-        
         
         if($(".body-copy").length){
             wordWrap();   
@@ -323,11 +337,100 @@
                        'animation-delay'  : delayTime + (i * .2) + 's'
                     });  
                 })
-            })
+            });
             
+        }
+        
+        
+        
+        if($(".dark-section").length){
+            var mywindow = $(window);
+            var mypos = mywindow.scrollTop();
+            var up = false;
+            var newscroll;
+            mywindow.on("load scroll resize", function(){
+                
+                newscroll = mywindow.scrollTop();
+                
+                /*$(".dark-section").each(function(){
+                    var blackSec = $(this);
+                    var startBlackSec = $(this).offset().top - 40;
+                    var endBlackSec = startBlackSec + blackSec.outerHeight();
+                    //var scrollTp = $(window).scrollTop();
+                    if((newscroll > startBlackSec && newscroll < endBlackSec) && (newscroll > mypos && !up) || newscroll < endBlackSec){
+                       console.log("Begin black section");
+                       $("body").addClass("whiteHeader");                     
+                       up = !up;
+                    }
+                    if(newscroll > endBlackSec + 20 || (newscroll < mypos && up) && (newscroll < startBlackSec)){
+                        $("body").removeClass("whiteHeader");
+                        up = !up;
+                    }
+                });*/
+                
+                var totalSection = $(".dark-section").length;
+                console.log(totalSection)
+                $(".dark-section").each(function(){
+                    var blackSec = $(this);
+                    var startBlackSec = $(this).offset().top - 40;
+                    var endBlackSec = startBlackSec + blackSec.outerHeight();
+                    var scrollTp = $(window).scrollTop();
+                    
+                    if(totalSection === 1){
+                        if(scrollTp > startBlackSec && scrollTp < endBlackSec){
+                           console.log("Begin black section");
+                           $("body").addClass("whiteHeader");
+                        }
+
+                        if(scrollTp > endBlackSec + 20 || scrollTp < startBlackSec){
+                            $("body").removeClass("whiteHeader");
+                        }   
+                    }else{
+                        if(scrollTp > startBlackSec && scrollTp < endBlackSec){
+                           console.log("Begin black section");
+                           $("body").addClass("whiteHeader");
+                        }
+
+                        if(scrollTp > endBlackSec + 20){
+                            $("body").removeClass("whiteHeader");
+                        }
+                    }
+                });
+                
+                
+                mypos = newscroll;
+            });
+            
+            
+            
+            
+            
+            
+            
+            
+            /*$(window).on("load scroll resize", function(){
+                $(".dark-section").each(function(){
+                    var blackSec = $(this);
+                    var startBlackSec = $(this).offset().top - 40;
+                    var endBlackSec = startBlackSec + blackSec.outerHeight();
+                    var scrollTp = $(window).scrollTop();
+                    if(scrollTp > startBlackSec && scrollTp < endBlackSec){
+                       console.log("Begin black section");
+                       $("body").addClass("whiteHeader");
+                    }
+                    if(scrollTp > endBlackSec + 20){
+                        $("body").removeClass("whiteHeader");
+                    }
+                });
+            });*/
         }
 
 	})// End ready function.
+    
+    $(window).on("load", function(){
+        $("body").addClass("loaded");
+    })
+    
     
     function wordWrap() {
         $(".body-copy").each(function(){
@@ -365,5 +468,5 @@
     }
     
 
-})(jQuery)
+})(jQuery);
 

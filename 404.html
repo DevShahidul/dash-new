@@ -5,7 +5,7 @@
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, minimum-scale=1.0, maximum-scale=1.0, initial-scale=1.0, user-scalable=no">
     <meta name="format-detection" content="telephone=no">
-    <title>Dash | What</title>
+    <title>Dash | 404 Error!</title>
 
     <link href="https://fonts.googleapis.com/css?family=Open+Sans:400,600|Source+Sans+Pro" rel="stylesheet">
     <link type="text/css" rel="stylesheet" href="css/slick.css">
@@ -32,19 +32,19 @@
         ==================================== -->
         <section class="main-content-wrap four-zero-four-content">
             <!-- Beginning hero section -->
-            <section class="hero-section bg-dark-gray z-index-10 page-top-content">
+            <section class="hero-section bg-dark-gray dark-section z-index-10 page-top-content">
                 <div class="hero-info">
                     <div class="common-wrap clear">
                         <div class="hero-content sm-container">
-                            <h3 class="small-title">We Solve Problems</h3>
+                            <h3 class="small-title">You've come too far</h3>
                             <h2 class="body-copy">Not to worry, you can head back to our home page and continue your journey.</h2>
                             <h2 class="body-copy-two"></h2>
-                            <div class="gif-thumb">
-                                <img src="img/go-back.gif" alt="">
-                            </div>
-                            <a href="index.html" class="body-link">Return to Dash Digital</a>
+                            <a href="index.html" class="body-link">Return Home</a>
                         </div>
                     </div>
+                </div>
+                <div class="go-back-thumb" id="bee">
+                    <img src="img/go-back.gif" alt="">
                 </div>
             </section>
             <!-- //End hero section -->
@@ -56,6 +56,60 @@
     <script type="text/javascript" src="scripts/jquery.mousewheel.js" defer></script>
     <script type="text/javascript" src="scripts/swiper.min.js" defer></script>
     <script type="text/javascript" src="scripts/common-scripts.js" defer></script>
+    <script type="text/javascript">
+        // Image follow mouse function
+         var bee = document.getElementById("bee");
+         document.addEventListener("mousemove", getMouse);
+
+
+         bee.style.position = "absolute"; //css		
+         var beepos = {
+             x: 0,
+             y: 0
+         };
+
+         setInterval(followMouse, 50);
+
+         var mouse = {
+             x: 0,
+             y: 0
+         }; //mouse.x, mouse.y
+
+         var dir = "right";
+
+         function getMouse(e){
+             mouse.x = e.pageX;
+             mouse.y = e.pageY;
+             //Checking directional change
+             if (mouse.x > beepos.x) {
+                 dir = "right";
+             } else {
+                 dir = "left";
+             }
+         }
+
+         function followMouse(){
+             //1. find distance X , distance Y
+             var distX = mouse.x - beepos.x;
+             var distY = mouse.y - beepos.y;
+             //Easing motion
+             //Progressive reduction of distance 
+             beepos.x += distX / 5;
+             beepos.y += distY / 2;
+
+             bee.style.left = beepos.x + "px";
+             bee.style.top = beepos.y + "px";
+
+
+             //Apply css class 
+             /*if (dir == "right") {
+                 bee.setAttribute("class", "right");
+             } else {
+                 bee.setAttribute("class", "left");
+             }*/
+
+         }
+    </script>
 </body>
 
 </html>
